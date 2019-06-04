@@ -62,7 +62,7 @@ document.write(saludo(s, f, c));*/
 
 
 // Conviertan cualquier ciclo for que use un arreglo de la parte 1 para que use forEach o map
-let entrada = window.prompt('Dame una palabra');
+/*let entrada = window.prompt('Dame una palabra');
 let entradaInvertida =entrada.split(" ");
 let salida = '';
 
@@ -74,7 +74,7 @@ entradaInvertida.forEach((valor, index) => {
 })
 
 console.log(palabra.join(' '));
-console.log(salida);
+console.log(salida);*/
 
 
 // Explica cual es la salida de las siguientes funciones y porqué:
@@ -82,13 +82,13 @@ console.log(salida);
 var a = 12;
 (function() {
   alert(a);
-})();
+})(); -------------->La salida es 12 con el valor de variable "a";
 */
 
 /*
 var a = 5;
 (function() {
-  var a = 12;
+  var a = 12; ----Muestra salida de valor nuevo de 'a' = 12
   alert(a);
 })();
 */
@@ -97,7 +97,7 @@ var a = 5;
 var a = 10;
 var x = (function() {
   var a = 12;
-  return (function() {
+  return (function() {-----toma del valor de 'a' y da salida de 12
     alert(a);
   });
 })();
@@ -111,7 +111,7 @@ var x = (function() {
     var a = 12;
   };
   return function() {
-    alert(a);
+    alert(a); ------------salida es 10 con el valor de a
   }
 })();
 x();
@@ -126,15 +126,15 @@ var x = (function() {
   return (function() {
     alert(a);
   });
-})();
-x();
+})();---------salida es 12
+x(); ----manda a llamar la funcion con el valor de 12
 */
 
 /*
 var a = 10;
 (function() {
   var a = 15;
-  window.x = function() {
+  window.x = function() {-----toma el valor nuevo de a cuando se manda a llamar en la funcion
     alert(a);
   }
 })();
@@ -143,8 +143,8 @@ x();
 
 /*
 function leFunction() {
-  console.log(a);
-  console.log(foo());
+  console.log(a);-------a vale 1
+  console.log(foo());----imprime la funcion con el valor de return
 
   var a = 1;
   function foo() {
@@ -192,8 +192,8 @@ function b() {
   return;
   function a() {}
 }
-b();
-console.log(a);
+b();---manda a llamar la funcion b
+console.log(a);----salida es el valor 1 de a
 */
 
 /*
@@ -202,6 +202,46 @@ console.log(a);
   Agrega un método (describe) que regrese una cadena como esta:
   {Nombre} {Apellido}, {edad} años.
 */
+
+class Persona {
+  constructor(nombre, apellido, edad) {
+    this.nombre = nombre;
+    this.apellido = apellido;
+    this.edad = edad;
+  }
+  getNombre() {
+    return this.nombre;
+  }
+
+  getApellido() {
+    return this.apellido;
+  }
+
+  getEdad() {
+    return this.edad;
+  }
+
+  setNombre(nuevoNombre) {
+    this.nombre = nuevoNombre;
+  }
+
+  setApellido(nuevoApellido) {
+    this.apellido = nuevoApellido;
+  }
+  setEdad(nuevaEdad) {
+    this.edad = nuevaEdad;
+  }
+
+  describe() {
+    return this.nombre + ' ' + this.apellido + ' ' + this.edad;
+  }
+}
+
+const viri = new Persona('Itati Viridiana', 'De la rocha', 24);
+viri.setEdad(18);
+viri.setApellido('De la rocha');
+console.log(viri.nombre, viri.edad, viri.apellido);
+console.log(viri.describe());
 
 /*
   Crea una clase Product que recibe un nombre y un valor
